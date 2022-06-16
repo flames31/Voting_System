@@ -114,9 +114,9 @@ export default class Result extends Component {
           ) : this.state.isElStarted && !this.state.isElEnded ? (
             <div className="container-item attention">
               <center>
-                <h3>The election is being conducted at the movement.</h3>
-                <p>Result will be displayed once the election has ended.</p>
-                <p>Go ahead and cast your vote {"(if not already)"}.</p>
+                <h3>The election is being conducted at the moment.</h3>
+                <p>Results will be displayed once the election has ended.</p>
+                <p>If not voted please cast your vote.</p>
                 <br />
                 <Link
                   to="/Voting"
@@ -154,7 +154,7 @@ function displayWinner(candidates) {
     return (
       <div className="container-winner">
         <div className="winner-info">
-          <p className="winner-tag">Winner!</p>
+          <p className="winner-tag">Most voted candidate</p>
           <h2> {winner.header}</h2>
           <p className="winner-slogan">{winner.slogan}</p>
         </div>
@@ -173,14 +173,18 @@ export function displayResults(candidates) {
   const renderResults = (candidate) => {
     return (
       <tr>
-        <td>{candidate.id}</td>
+        <td>{(parseInt(candidate.id) + 1).toString()}</td>
         <td>{candidate.header}</td>
+        <td>{candidate.slogan}</td>
         <td>{candidate.voteCount}</td>
       </tr>
     );
   };
   return (
     <>
+      <div className="container-item" style={{ border: "1px solid black" }}>
+        <center>Final Results</center>
+      </div>
       {candidates.length > 0 ? (
         <div className="container-main">{displayWinner(candidates)}</div>
       ) : null}
@@ -198,16 +202,11 @@ export function displayResults(candidates) {
                 <tr>
                   <th>Id</th>
                   <th>Candidate</th>
+                  <th>Party</th>
                   <th>Votes</th>
                 </tr>
                 {candidates.map(renderResults)}
               </table>
-            </div>
-            <div
-              className="container-item"
-              style={{ border: "1px solid black" }}
-            >
-              <center>That is all.</center>
             </div>
           </>
         )}

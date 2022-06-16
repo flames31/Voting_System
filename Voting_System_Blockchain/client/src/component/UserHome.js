@@ -16,7 +16,7 @@ function UserHome(props) {
               </td>
             </tr>
             <tr>
-              <th>contact</th>
+              <th>Location</th>
               <td style={{ textTransform: "none" }}>{props.el.adminEmail}</td>
             </tr>
           </table>

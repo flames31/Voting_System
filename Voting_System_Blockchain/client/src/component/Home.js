@@ -231,20 +231,16 @@ export default class Home extends Component {
                       </label>
 
                       <label className="label-home">
-                        Email{" "}
+                        Location{" "}
                         {errors.adminEmail && (
                           <EMsg msg={errors.adminEmail.message} />
                         )}
                         <input
                           className="input-home"
-                          placeholder="example@mail.com"
+                          placeholder="Bangalore"
                           name="adminEmail"
                           {...register("adminEmail", {
                             required: "*Required",
-                            pattern: {
-                              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-                              message: "*Invalid",
-                            },
                           })}
                         />
                       </label>

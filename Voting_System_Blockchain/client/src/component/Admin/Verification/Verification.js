@@ -101,11 +101,13 @@ export default class Registration extends Component {
       <>
         {voter.isVerified ? (
           <div className="container-list success">
-            <p style={{ margin: "7px 0px" }}>AC: {voter.address}</p>
+            <p style={{ margin: "7px 0px" }}>
+              Account address: {voter.address}
+            </p>
             <table>
               <tr>
                 <th>Name</th>
-                <th>Phone</th>
+                <th>Voter ID</th>
                 <th>Voted</th>
               </tr>
               <tr>
@@ -130,7 +132,7 @@ export default class Registration extends Component {
               <td>{voter.name}</td>
             </tr>
             <tr>
-              <th>Phone</th>
+              <th>Voter ID</th>
               <td>{voter.phone}</td>
             </tr>
             <tr>

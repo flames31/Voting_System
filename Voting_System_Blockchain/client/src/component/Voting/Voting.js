@@ -128,7 +128,7 @@ export default class Voting extends Component {
     };
     const confirmVote = (id, header) => {
       var r = window.confirm(
-        "Vote for " + header + " with Id " + id + ".\nAre you sure?"
+        "Vote for " + header + "(" + candidate.slogan + ")" + ".\nAre you sure?"
       );
       if (r === true) {
         castVote(id);
@@ -138,7 +138,7 @@ export default class Voting extends Component {
       <div className="container-item">
         <div className="candidate-info">
           <h2>
-            {candidate.header} <small>#{candidate.id}</small>
+            {(parseInt(candidate.id) + 1).toString()}) {candidate.header}
           </h2>
           <p className="slogan">{candidate.slogan}</p>
         </div>
@@ -182,7 +182,7 @@ export default class Voting extends Component {
                   this.state.currentVoter.hasVoted ? (
                     <div className="container-item success">
                       <div>
-                        <strong>You've casted your vote.</strong>
+                        <strong>You have voted.</strong>
                         <p />
                         <center>
                           <Link
@@ -199,12 +199,12 @@ export default class Voting extends Component {
                     </div>
                   ) : (
                     <div className="container-item info">
-                      <center>Go ahead and cast your vote.</center>
+                      <center>Cast your vote.</center>
                     </div>
                   )
                 ) : (
                   <div className="container-item attention">
-                    <center>Please wait for admin to verify.</center>
+                    <center>Please wait for ECI official to verify.</center>
                   </div>
                 )
               ) : (
@@ -228,17 +228,15 @@ export default class Voting extends Component {
                 <small>Total candidates: {this.state.candidates.length}</small>
                 {this.state.candidates.length < 1 ? (
                   <div className="container-item attention">
-                    <center>Not one to vote for.</center>
+                    <center>No candidates to vote.</center>
                   </div>
                 ) : (
                   <>
                     {this.state.candidates.map(this.renderCandidates)}
-                    <div
+                    {/* <div
                       className="container-item"
                       style={{ border: "1px solid black" }}
-                    >
-                      <center>That is all.</center>
-                    </div>
+                    ></div> */}
                   </>
                 )}
               </div>
@@ -247,7 +245,7 @@ export default class Voting extends Component {
             <>
               <div className="container-item attention">
                 <center>
-                  <h3>The Election ended.</h3>
+                  <h3>Election process has ended.</h3>
                   <br />
                   <Link
                     to="/Results"

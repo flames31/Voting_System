@@ -57,7 +57,7 @@ const StartEnd = (props) => {
           {props.elEnded ? (
             <div className="container-item">
               <center>
-                <p>The election ended.</p>
+                <p>The election process has ended.</p>
               </center>
             </div>
           ) : null}
@@ -66,7 +66,7 @@ const StartEnd = (props) => {
         <>
           <div className="container-item">
             <center>
-              <p>The election started.</p>
+              <p>The election has started.</p>
             </center>
           </div>
           <div className="container-item">
@@ -76,7 +76,7 @@ const StartEnd = (props) => {
               onClick={props.endElFn}
               style={btn}
             >
-              End
+              End election
             </button>
           </div>
         </>
